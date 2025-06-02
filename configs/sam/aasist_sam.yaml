@@ -1,0 +1,40 @@
+seed: 666
+
+data:
+  train:
+    data_file: data/metadata/ASVspoof2019_LA_train.csv
+    algo: 0
+  valid:
+    data_file: data/metadata/ASVspoof2019_LA_dev.csv
+  valid1:
+    data_file: data/metadata/In_The_Wild_dev.csv
+batch_size: 24
+num_workers: 4
+
+dist_config:
+  dist_backend: nccl
+  dist_url: tcp://localhost:1523
+
+num_epochs: 100
+save_freq: 10
+
+optimizer:
+  name: sam
+  params:
+    rho: 0.05
+    adaptive: false
+    lr: 0.0001
+    weight_decay: 0.0001
+
+scheduler:
+  name: cosine
+  params:
+    lr_base: 0.0001
+    lr_min: 0.000005
+
+model: aasist
+
+loss:
+  name: wce
+  params:
+    weight: [0.1, 0.9]
