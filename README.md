@@ -1,5 +1,5 @@
 # SAM-AntiSpoofing
-This is the official implementation of [our paper]()
+This is the official implementation of [our paper](https://arxiv.org/pdf/2506.11532)
 
 ```bibtex
 From Sharpness to Better Generalization for Speech Deepfake Detection
